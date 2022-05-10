@@ -10,5 +10,8 @@ python train.py --dist-url 'tcp://localhost:10001' --multiprocessing-distributed
 
 遇到_pickle.UnpicklingError: pickle data was truncated，[解决方法 调小num-workers](https://blog.csdn.net/leo0308/articyle/details/123585400)
 
-遇到RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one.
-[解决方法设置torch.nn.parallel.DistributedDataParallel的参数find_unused_parameters=True](https://blog.csdn.net/weixin_44966641/article/details/120385212)
+
+遇到RuntimeError: Expected to have finished reduction in the prior iteration before starting a new one. 
+
+
+[解决方法: 设置torch.nn.parallel.DistributedDataParallel的参数find_unused_parameters=True](https://blog.csdn.net/weixin_44966641/article/details/120385212)
