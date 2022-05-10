@@ -251,6 +251,7 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
 
     # switch to train mode
     model.train()
+    t0 = time.time()
     train_loss = list()
     for i, data in enumerate(train_loader):
         input_ids = data['input_ids'].cuda()
@@ -272,8 +273,6 @@ def train(train_loader, model, criterion, optimizer, epoch, args):
     avg_loss = sum(train_loss) / len(train_loss)
     # num_examples_seen = (batch_idx - start_batch_idx) * args.bsize
     logger.info('epoch {1}\ttrain/avg_loss = {0}'.format(avg_loss, epoch))
-
-    training_time = timedelta(seconds=time.time() - t0)
     logger.info('Epoch done! Training took: {0}'.format(str(timedelta(seconds=time.time() - t0_e))))
 
 
